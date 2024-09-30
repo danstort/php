@@ -1,11 +1,4 @@
 <?php
-while($entrada = fgets(STDIN)) : ?>
-<p><?php
-$entrada = explode(" ", trim(fgets(STDIN)));
-
-$operacion = $entrada[0];
-
-
 function suma($entrada)
 {
 
@@ -27,26 +20,34 @@ function media($entrada)
 
     return $resultado;
 }
+while ($fila = fgets(STDIN)) : ?>
+<p><?php
+        $entrada = explode(" ", trim($fila));
+
+        $operacion = $entrada[0];
 
 
-$final="";
 
-if (count($entrada)>2) {
 
-    switch ($operacion) {
-        case "suma":
-            $final = "La suma de los números es: ".suma($entrada);
-            break;
-        case 'media':
-            $final = "La media de los números es: ".media($entrada);
-            break;
-        default:
-            $final = "(Error) Operación no permitida";
-    }
-} else {
-    $final = "(Error) No dispongo de suficientes argumentos.";
-}
 
-echo $final; ?>
-</p>
+        $final = "";
+
+        if (count($entrada) > 2) {
+
+            switch ($operacion) {
+                case "suma":
+                    $final = "La suma de los números es: " . suma($entrada);
+                    break;
+                case 'media':
+                    $final = "La media de los números es: " . media($entrada);
+                    break;
+                default:
+                    $final = "(Error) Operación no permitida";
+            }
+        } else {
+            $final = "(Error) No dispongo de suficientes argumentos.";
+        }
+
+
+echo $final; ?></p>
 <?php endwhile; ?>
